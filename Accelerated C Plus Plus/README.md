@@ -1,1 +1,1 @@
-Contains my solutions to the exercises in the book Accelerated c++.
+Contains my solutions to the exercises in the book "Accelerated c++".

@@ -1,0 +1,8 @@
+The main steps of the algorithm are as follows:
+    1. Read each line of the input and generate a set of rotations of that line.
+    2. Sort the rotations.
+    3. Unrotate and write the permuted index.
+The main steps are to be expanded in the following lines.
+
+1. Read each line of the input and generate a set of rotations of that line.
+Each line is to be read and stored in a list. This can be achieved by defining a function whose input is an input stream and whose output is a list of the lines read. After reading the lines, the production of the rotations of those lines is to be done by means of a function whose input is the list of the lines and whose output is the list of a structure. This structure contains the rotated line and the initial word of the original line. These two functions are to be declared in a header file and defined in a cpp source file. 

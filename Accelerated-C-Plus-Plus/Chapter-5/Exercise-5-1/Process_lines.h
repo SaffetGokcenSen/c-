@@ -13,4 +13,6 @@ struct Line_rotations {
     std::list<std::string> rotations;
 };
 
+std::list<Line_rotations>& rotate_lines(const std::list<std::string>&, std::list<Line_rotations>&);
+
 #endif

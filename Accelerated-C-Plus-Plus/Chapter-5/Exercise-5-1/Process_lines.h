@@ -8,6 +8,8 @@
 
 std::istream& read_lines(std::istream&, std::list<std::string>&);
 
+std::list<std::string> extract_words(const std::string&);
+
 struct Line_rotations {
     std::string firstWord;
     std::list<std::string> rotations;

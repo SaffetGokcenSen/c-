@@ -12,7 +12,7 @@ std::list<std::string> extract_words(const std::string&);
 
 struct Line_rotations {
     std::string firstWord;
-    std::list<std::string> rotations;
+    std::string rotation;
 };
 
 std::list<Line_rotations>& rotate_lines(const std::list<std::string>&, std::list<Line_rotations>&);

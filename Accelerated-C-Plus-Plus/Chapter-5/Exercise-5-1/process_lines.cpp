@@ -86,14 +86,12 @@ list<Line_rotations>& rotate_lines(const list<string>& line_list, list<Line_rota
             for (string_list_it iter = word_list.begin(); iter != word_list.end(); ++iter) {
                 rotated_line += *iter + " ";  
             }
-            // the rotated line is stored in the rotations element of the structure
-            line_structure.rotations.push_back(rotated_line);
+            // the rotated line is stored in the rotation element of the structure
+            line_structure.rotation = rotated_line;
+            // the structure containing the first word and rotated version of the line is stored
+            // in the rotated lines structure 
+            rotated_lines.push_back(line_structure);
         }
-        // the structure containing the first word and rotated versions of the line is stored
-        // in the rotated lines structure 
-        rotated_lines.push_back(line_structure);
-        // Remove the contents of the rotations element for the next line rotations
-        line_structure.rotations.clear();
     }
 
     return rotated_lines;

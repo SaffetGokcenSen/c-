@@ -28,11 +28,8 @@ int main() {
     cout << endl << "The first words of the lines and their rotations are as follows:" << endl;
     list<string> the_rotated_lines;
     for (list<Line_rotations>::const_iterator it = rotated_lines.begin(); it != rotated_lines.end(); ++it) {
-        cout << it->firstWord;
-        cout << endl;
-        for (list<string>::const_iterator it2 = it->rotations.begin(); it2 != it->rotations.end(); ++it2) {
-            cout << *it2 << endl;
-        }
+        cout << it->firstWord << endl;
+        cout << it->rotation << endl;
         cout << "------------------------------" << endl;
     }
 

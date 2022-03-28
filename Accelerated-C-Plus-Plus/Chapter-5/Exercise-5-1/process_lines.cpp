@@ -9,6 +9,7 @@ using std::list;
 using std::string;
 using std::getline;
 using std::isspace;
+using std::tolower;
 
 istream& read_lines(istream& input_stream, list<string>& line_list) {
     if (input_stream) {
@@ -74,7 +75,7 @@ list<Line_rotations>& rotate_lines(const list<string>& line_list, list<Line_rota
         list_it = word_list.begin();
         // the first word of the line is stored in the first word element of the structure
         line_structure.firstWord = *list_it;
-        for (list<string>::size_type i = 0; i < (word_list.size() - 1); ++i) {
+        for (list<string>::size_type i = 0; i < word_list.size(); ++i) {
             rotated_line = "";
             // send the first word to the end of the line
             word_list.push_back(*list_it);
@@ -95,4 +96,12 @@ list<Line_rotations>& rotate_lines(const list<string>& line_list, list<Line_rota
     }
 
     return rotated_lines;
+}
+
+bool string_compare(const Line_rotations struct1, const Line_rotations struct2) {
+    string::size_type i = 0;
+    while (tolower(struct1.rotation[i]) == tolower(struct2.rotation[i])) {
+        ++i;
+    }
+    return tolower(struct1.rotation[i]) < tolower(struct2.rotation[i]);
 }

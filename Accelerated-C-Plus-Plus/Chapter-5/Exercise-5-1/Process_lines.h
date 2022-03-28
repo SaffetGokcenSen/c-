@@ -17,4 +17,6 @@ struct Line_rotations {
 
 std::list<Line_rotations>& rotate_lines(const std::list<std::string>&, std::list<Line_rotations>&);
 
+bool string_compare(const Line_rotations, const Line_rotations);
+
 #endif

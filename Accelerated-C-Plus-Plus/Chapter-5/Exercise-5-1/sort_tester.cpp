@@ -26,20 +26,26 @@ int main() {
     rotate_lines(input_lines, rotated_lines);
 
     cout << endl << "The first words of the lines and their rotations are as follows:" << endl;
-    list<string> the_rotated_lines;
+    list<string> the_rotated_line;
+    list<string>::const_iterator it2;
     for (list<Line_rotations>::const_iterator it = rotated_lines.begin(); it != rotated_lines.end(); ++it) {
         cout << it->firstWord << endl;
-        cout << it->rotation << endl;
-        cout << "------------------------------" << endl;
+        the_rotated_line = it->rotation;
+        for (it2 = the_rotated_line.begin(); it2 != the_rotated_line.end(); ++it2) {
+            cout << *it2 << " ";
+        }
+        cout << endl;
     }
 
     rotated_lines.sort(string_compare);
 
-    cout << endl << "The first words of the lines and their rotations in alphabetical order are as follows:" << endl;
+    cout << endl << "The rotated lines are listed in alphabetical order as follows:" << endl;
     for (list<Line_rotations>::const_iterator it = rotated_lines.begin(); it != rotated_lines.end(); ++it) {
-        cout << it->firstWord << endl;
-        cout << it->rotation << endl;
-        cout << "------------------------------" << endl;
+        the_rotated_line = it->rotation;
+        for (it2 = the_rotated_line.begin(); it2 != the_rotated_line.end(); ++it2) {
+            cout << *it2 << " ";
+        }
+        cout << endl;
     }
 
     return 0;

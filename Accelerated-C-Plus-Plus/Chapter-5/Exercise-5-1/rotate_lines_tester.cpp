@@ -27,12 +27,12 @@ int main() {
     rotate_lines(input_lines, rotated_lines);
 
     cout << endl << "The first words of the lines and their rotations are as follows:" << endl;
-    list<string> the_rotated_lines;
+    list<string> the_rotated_line;
     list<string>::const_iterator it2;
     for (list<Line_rotations>::const_iterator it = rotated_lines.begin(); it != rotated_lines.end(); ++it) {
         cout << it->firstWord << endl;
-        the_rotated_lines = it->rotation;
-        for (it2 = the_rotated_lines.begin(); it2 != the_rotated_lines.end(); ++it2) {
+        the_rotated_line = it->rotation;
+        for (it2 = the_rotated_line.begin(); it2 != the_rotated_line.end(); ++it2) {
             cout << *it2 << " ";
         }
         cout << endl;

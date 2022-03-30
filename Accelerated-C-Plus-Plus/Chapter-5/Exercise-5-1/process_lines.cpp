@@ -76,19 +76,15 @@ list<Line_rotations>& rotate_lines(const list<string>& line_list, list<Line_rota
         // the first word of the line is stored in the first word element of the structure
         line_structure.firstWord = *list_it;
         for (list<string>::size_type i = 0; i < word_list.size(); ++i) {
-            rotated_line = "";
+            // rotated_line = "";
             // send the first word to the end of the line
             word_list.push_back(*list_it);
             // erase the first word of the line
             word_list.erase(list_it);
             // point the iterator to the new beginning of the list
             list_it = word_list.begin();
-            // combine the words of the rotated line
-            for (string_list_it iter = word_list.begin(); iter != word_list.end(); ++iter) {
-                rotated_line += *iter + " ";  
-            }
             // the rotated line is stored in the rotation element of the structure
-            line_structure.rotation = rotated_line;
+            line_structure.rotation = word_list;
             // the structure containing the first word and rotated version of the line is stored
             // in the rotated lines structure 
             rotated_lines.push_back(line_structure);
@@ -100,8 +96,14 @@ list<Line_rotations>& rotate_lines(const list<string>& line_list, list<Line_rota
 
 bool string_compare(const Line_rotations struct1, const Line_rotations struct2) {
     string::size_type i = 0;
-    while (tolower(struct1.rotation[i]) == tolower(struct2.rotation[i])) {
+    list<string>::const_iterator it1, it2;
+    it1 = struct1.rotation.begin();
+    it2 = struct2.rotation.begin();
+    string word1, word2;
+    word1 = *it1;
+    word2 = *it2;
+    while (tolower(word1[i]) == tolower(word2[i])) {
         ++i;
     }
-    return tolower(struct1.rotation[i]) < tolower(struct2.rotation[i]);
+    return tolower(word1[i]) < tolower(word2[i]);
 }

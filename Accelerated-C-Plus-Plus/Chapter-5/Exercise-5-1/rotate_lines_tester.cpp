@@ -22,15 +22,20 @@ int main() {
         cout << *it << endl; 
     }
 
+    // rotate_lines(const list<string>& line_list, list<Line_rotations>& rotated_lines)
     list<Line_rotations> rotated_lines;
     rotate_lines(input_lines, rotated_lines);
 
     cout << endl << "The first words of the lines and their rotations are as follows:" << endl;
     list<string> the_rotated_lines;
+    list<string>::const_iterator it2;
     for (list<Line_rotations>::const_iterator it = rotated_lines.begin(); it != rotated_lines.end(); ++it) {
         cout << it->firstWord << endl;
-        cout << it->rotation << endl;
-        cout << "------------------------------" << endl;
+        the_rotated_lines = it->rotation;
+        for (it2 = the_rotated_lines.begin(); it2 != the_rotated_lines.end(); ++it2) {
+            cout << *it2 << " ";
+        }
+        cout << endl;
     }
 
     return 0;

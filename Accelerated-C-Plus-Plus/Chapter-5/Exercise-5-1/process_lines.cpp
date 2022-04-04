@@ -3,6 +3,7 @@
 #include <list>
 #include <string>
 #include <cctype>
+#include <vector>
 
 using std::istream;
 using std::list;
@@ -10,6 +11,7 @@ using std::string;
 using std::getline;
 using std::isspace;
 using std::tolower;
+using std::vector;
 
 istream& read_lines(istream& input_stream, list<string>& line_list) {
     if (input_stream) {
@@ -65,12 +67,17 @@ list<Line_rotations>& rotate_lines(const list<string>& line_list, list<Line_rota
     Line_rotations line_structure;
     // the iterator for the input list of lines
     string_list_it list_it;
+    list<string>::const_reverse_iterator list_r_it;
     // the string containing the rotated line
     string rotated_line;
     for (string_list_it it = line_list.begin(); it != line_list.end(); ++it) {
         the_line = *it;
         // the words of the line are stored in the word list
         word_list = extract_words(the_line);
+        // an iterator is pointed to the end of the word list
+        list_r_it = word_list.rbegin();
+        // the last word of the line is stored in the last word element of the structure
+        line_structure.lastWord = *list_r_it;
         // an iterator is pointed to the beginning of the word list
         list_it = word_list.begin();
         // the first word of the line is stored in the first word element of the structure
@@ -107,3 +114,49 @@ bool string_compare(const Line_rotations struct1, const Line_rotations struct2) 
     }
     return tolower(word1[i]) < tolower(word2[i]);
 }
+
+// determine the number of leading characters for each index word and
+// store them in an array of string sizes. Determine the maximum of
+// this array. Using existing rotated lines structure, unrotate each
+// line, front-pad each of them with a required number of blank spaces.
+// Add a fixed amount additional blank spaces before the index word. 
+// Write the index word and the rest.
+vector<string::size_type> num_of_unrotation_chars(const list<Line_rotations>& rotation_structs) {
+    vector<string::size_type> rotation_char_num;
+    string::size_type char_num;
+    string first_word, current_word, last_word;
+    typedef list<Line_rotations>::const_iterator line_it;
+    list<string> rotated_line;
+    list<string>::const_reverse_iterator it2;
+    for (line_it it = rotation_structs.begin(); it != rotation_structs.end(); ++it) {
+        first_word = it->firstWord;
+        last_word = it->lastWord;
+        rotated_line = it->rotation;
+        char_num = 0;
+        it2 = rotated_line.rbegin();
+        current_word = *it2;
+        if (current_word != last_word) {
+            while (current_word != first_word) {
+                char_num += current_word.size() + 1;
+                ++it2;
+                current_word = *it2;
+            }
+            char_num += first_word.size() + 1;
+        }
+        rotation_char_num.push_back(char_num);
+    }
+
+    return rotation_char_num;
+}
+
+/*
+Ali kalemi buraya getir
+kalemi buraya getir Ali
+buraya getir Ali kalemi
+getir Ali kalemi buraya
+
+                       Ali kalemi buraya getir
+            Ali kalemi buraya getir
+     Ali kalemi buraya getir
+                   Ali kalemi buraya getir
+*/

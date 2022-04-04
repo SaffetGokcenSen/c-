@@ -115,12 +115,6 @@ bool string_compare(const Line_rotations struct1, const Line_rotations struct2) 
     return tolower(word1[i]) < tolower(word2[i]);
 }
 
-// determine the number of leading characters for each index word and
-// store them in an array of string sizes. Determine the maximum of
-// this array. Using existing rotated lines structure, unrotate each
-// line, front-pad each of them with a required number of blank spaces.
-// Add a fixed amount additional blank spaces before the index word. 
-// Write the index word and the rest.
 vector<string::size_type> num_of_unrotation_chars(const list<Line_rotations>& rotation_structs) {
     vector<string::size_type> rotation_char_num;
     string::size_type char_num;
@@ -148,15 +142,3 @@ vector<string::size_type> num_of_unrotation_chars(const list<Line_rotations>& ro
 
     return rotation_char_num;
 }
-
-/*
-Ali kalemi buraya getir
-kalemi buraya getir Ali
-buraya getir Ali kalemi
-getir Ali kalemi buraya
-
-                       Ali kalemi buraya getir
-            Ali kalemi buraya getir
-     Ali kalemi buraya getir
-                   Ali kalemi buraya getir
-*/

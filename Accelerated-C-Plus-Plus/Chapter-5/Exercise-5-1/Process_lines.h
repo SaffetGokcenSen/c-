@@ -21,6 +21,8 @@ std::list<Line_rotations>& rotate_lines(const std::list<std::string>&, std::list
 
 bool string_compare(const Line_rotations, const Line_rotations);
 
-std::vector<std::string::size_type> num_of_unrotation_chars(const std::list<Line_rotations>&);
+std::list<std::string::size_type> num_of_unrotation_chars(const std::list<Line_rotations>&);
+
+std::list<std::string> permuted_index(const std::vector<std::string::size_type>&, const std::list<Line_rotations>&);
 
 #endif

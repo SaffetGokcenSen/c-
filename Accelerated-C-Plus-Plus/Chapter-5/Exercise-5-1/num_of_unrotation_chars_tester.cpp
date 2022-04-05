@@ -50,13 +50,13 @@ int main() {
         cout << endl;
     }
 
-    vector<string::size_type> char_num_vector;
+    list<string::size_type> char_num_vector;
 
     char_num_vector = num_of_unrotation_chars(rotated_lines);
 
     cout << endl << "The number of characters needed to unrotate the lines are as follows:" << endl;
-    for (int i = 0; i < char_num_vector.size(); ++i) {
-        cout << char_num_vector[i] << endl;
+    for (list<string::size_type>::const_iterator it = char_num_vector.begin(); it != char_num_vector.end(); ++it) {
+        cout << *it << endl;
     }
 
     return 0;

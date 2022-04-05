@@ -142,7 +142,3 @@ list<string::size_type> num_of_unrotation_chars(const list<Line_rotations>& rota
 
     return rotation_char_num;
 }
-
-/*list<string> permuted_index(const vector<string::size_type>& num_unrotation_chars, const list<Line_rotations>& rotation_structs) {
-    
-}*/

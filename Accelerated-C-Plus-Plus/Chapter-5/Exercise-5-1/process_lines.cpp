@@ -116,7 +116,7 @@ bool string_compare(const Line_rotations struct1, const Line_rotations struct2) 
 }
 
 list<string::size_type> num_of_unrotation_chars(const list<Line_rotations>& rotation_structs) {
-    list<string::size_type> rotation_char_num;
+    list<string::size_type> unrotation_char_num;
     string::size_type char_num;
     string first_word, current_word, last_word;
     typedef list<Line_rotations>::const_iterator line_it;
@@ -137,8 +137,18 @@ list<string::size_type> num_of_unrotation_chars(const list<Line_rotations>& rota
             }
             char_num += first_word.size() + 1;
         }
-        rotation_char_num.push_back(char_num);
+        unrotation_char_num.push_back(char_num);
     }
 
-    return rotation_char_num;
+    return unrotation_char_num;
+}
+
+string::size_type find_max(const list<string::size_type>& unrotation_char_nums) {
+    string::size_type max_size = 0, current_size;
+    for (list<string::size_type>::const_iterator it = unrotation_char_nums.begin(); it != unrotation_char_nums.end(); ++it) {
+        current_size = *it;
+        if (current_size > max_size) max_size = current_size;
+    }
+
+    return max_size;
 }

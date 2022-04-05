@@ -11,7 +11,8 @@ using std::cin;
 
 int main() {
     cout << "Please enter lines separated by newlines that can be created by"
-         << " pressing enter." << endl;
+         << " pressing enter. Finish your input with end of file character, "
+         << "Ctrl+d in linux." << endl;
     
     list<string> input_lines;
     read_lines(cin, input_lines);

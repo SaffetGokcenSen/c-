@@ -115,8 +115,8 @@ bool string_compare(const Line_rotations struct1, const Line_rotations struct2) 
     return tolower(word1[i]) < tolower(word2[i]);
 }
 
-vector<string::size_type> num_of_unrotation_chars(const list<Line_rotations>& rotation_structs) {
-    vector<string::size_type> rotation_char_num;
+list<string::size_type> num_of_unrotation_chars(const list<Line_rotations>& rotation_structs) {
+    list<string::size_type> rotation_char_num;
     string::size_type char_num;
     string first_word, current_word, last_word;
     typedef list<Line_rotations>::const_iterator line_it;
@@ -142,3 +142,7 @@ vector<string::size_type> num_of_unrotation_chars(const list<Line_rotations>& ro
 
     return rotation_char_num;
 }
+
+/*list<string> permuted_index(const vector<string::size_type>& num_unrotation_chars, const list<Line_rotations>& rotation_structs) {
+    
+}*/

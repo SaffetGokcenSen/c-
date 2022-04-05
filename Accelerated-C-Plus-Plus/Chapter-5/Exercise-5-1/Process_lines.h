@@ -25,4 +25,6 @@ std::list<std::string::size_type> num_of_unrotation_chars(const std::list<Line_r
 
 std::list<std::string> permuted_index(const std::list<std::string::size_type>&, const std::list<Line_rotations>&);
 
+std::string::size_type find_max(const std::list<std::string::size_type>&);
+
 #endif

@@ -152,3 +152,62 @@ string::size_type find_max(const list<string::size_type>& unrotation_char_nums) 
 
     return max_size;
 }
+
+list<string> permuted_index(const list<string::size_type>& unrotation_char_nums, const list<Line_rotations>& rotated_lines_struct) {
+    string::size_type max_size = find_max(unrotation_char_nums);
+    list<string> the_permuted_index, rotated_line;
+    list<string::size_type>::const_iterator it2 = unrotation_char_nums.begin();
+    list<string>::iterator str_lst_it;
+    string first_word, last_word, formatted_line;
+    Line_rotations line_struct;
+    list<string>::const_reverse_iterator str_lst_rev_it;
+    for (list<Line_rotations>::const_iterator it = rotated_lines_struct.begin(); it != rotated_lines_struct.end(); ++it) {
+        line_struct = *it;
+        first_word = line_struct.firstWord;
+        last_word = line_struct.lastWord;
+        rotated_line = line_struct.rotation;
+        str_lst_rev_it = rotated_line.rbegin();
+        if (*str_lst_rev_it == last_word) {
+            string spaces(max_size, ' ');
+            formatted_line = "";
+            for (str_lst_it = rotated_line.begin(); str_lst_it != rotated_line.end(); ++str_lst_it){
+                formatted_line += *str_lst_it + ' ';
+            }
+            formatted_line += spaces;
+            formatted_line.pop_back();
+        }
+        else {
+            str_lst_it = rotated_line.begin();
+            while (*str_lst_it != first_word) {
+                rotated_line.push_back(*str_lst_it);
+                rotated_line.erase(str_lst_it);
+                str_lst_it = rotated_line.begin();
+            }
+            string spaces(max_size-(*it2), ' ');
+            formatted_line = "";
+            for (str_lst_it = rotated_line.begin(); str_lst_it != rotated_line.end(); ++str_lst_it){
+                formatted_line += *str_lst_it + ' ';
+            }
+            formatted_line += spaces;
+            formatted_line.pop_back();
+        }
+        ++it2;
+        the_permuted_index.push_back(formatted_line);
+    }
+
+    return the_permuted_index;
+}
+
+/*
+hava Bugün yağmurlu
+yağmurlu hava Bugün
+Bugün hava yağmurlu
+
+Bugün hava yağmurlu
+hava Bugün yağmurlu
+yağmurlu hava Bugün
+
+           Bugün hava yağmurlu (0)
+     Bugün hava yağmurlu (6)
+Bugün hava yağmurlu (11)
+*/

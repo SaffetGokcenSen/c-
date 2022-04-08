@@ -61,5 +61,10 @@ int main() {
     list<string> the_permuted_index;
     the_permuted_index = permuted_index(char_num_list, rotated_lines);
 
+    cout << endl << "The permuted index is as follows:" << endl;
+    for (list<string>::const_iterator it3 = the_permuted_index.begin(); it3 != the_permuted_index.end(); ++it3) {
+        cout << *it3 << endl;
+    }
+
     return 0;
 }

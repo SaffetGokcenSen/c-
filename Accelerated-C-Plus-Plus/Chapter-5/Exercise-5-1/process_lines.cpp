@@ -170,10 +170,10 @@ list<string> permuted_index(const list<string::size_type>& unrotation_char_nums,
         if (*str_lst_rev_it == last_word) {
             string spaces(max_size, ' ');
             formatted_line = "";
+            formatted_line += spaces;
             for (str_lst_it = rotated_line.begin(); str_lst_it != rotated_line.end(); ++str_lst_it){
                 formatted_line += *str_lst_it + ' ';
             }
-            formatted_line += spaces;
             formatted_line.pop_back();
         }
         else {
@@ -185,10 +185,10 @@ list<string> permuted_index(const list<string::size_type>& unrotation_char_nums,
             }
             string spaces(max_size-(*it2), ' ');
             formatted_line = "";
+            formatted_line += spaces;
             for (str_lst_it = rotated_line.begin(); str_lst_it != rotated_line.end(); ++str_lst_it){
                 formatted_line += *str_lst_it + ' ';
             }
-            formatted_line += spaces;
             formatted_line.pop_back();
         }
         ++it2;
@@ -197,17 +197,3 @@ list<string> permuted_index(const list<string::size_type>& unrotation_char_nums,
 
     return the_permuted_index;
 }
-
-/*
-hava Bugün yağmurlu
-yağmurlu hava Bugün
-Bugün hava yağmurlu
-
-Bugün hava yağmurlu
-hava Bugün yağmurlu
-yağmurlu hava Bugün
-
-           Bugün hava yağmurlu (0)
-     Bugün hava yağmurlu (6)
-Bugün hava yağmurlu (11)
-*/

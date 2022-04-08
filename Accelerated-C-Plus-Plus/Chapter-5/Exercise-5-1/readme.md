@@ -7,12 +7,19 @@ Causal learning depends on a model and data
 the output will be
 
             Causal learning depends on a model and data
+
     Causal learning depends on a model and data
+
                                        Causal learning depends on a model and data
+
 Causal learning depends on a model and data
+
                        Causal learning depends on a model and data
+
                                 Causal learning depends on a model and data
+
           Causal learning depends on a model and data
+
                Causal learning depends on a model and data
 
 It is assumed that there is no punctuation in the input.

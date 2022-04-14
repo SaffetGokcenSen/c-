@@ -7,6 +7,8 @@ using std::istream;
 using std::list;
 using std::string;
 using std::getline;
+using std::cout;
+using std::endl;
 
 istream& read_lines(istream& input_stream, list<string>& the_picture) {
   if (input_stream) {
@@ -39,5 +41,15 @@ list<string> center_picture(list<string>& the_picture) {
     if (current_string.size() > max_size) max_size = current_string.size(); 
   }
 
-  
+  list<string> centered_picture;
+  list<string>::size_type string_size, padding_size;
+  for (it = the_picture.begin(); it != the_picture.end(); ++it) {
+    current_string = *it;
+    string_size = current_string.size();
+    padding_size = (max_size - string_size) / 2;
+    string spaces(padding_size, ' ');
+    centered_picture.push_back(spaces + current_string + spaces);
+  }
+
+  return centered_picture;
 }

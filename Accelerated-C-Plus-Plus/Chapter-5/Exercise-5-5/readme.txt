@@ -15,4 +15,4 @@ the output will be as follows:
                                       bbbbbbb
                                  ssssss
 
-A line width is assumed to be 80 characters.
+The width of a line is assumed to be 80 characters.

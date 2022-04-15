@@ -14,3 +14,5 @@ the output will be as follows:
                                     ffffff
                                       bbbbbbb
                                  ssssss
+
+A line width is assumed to be 80 characters.

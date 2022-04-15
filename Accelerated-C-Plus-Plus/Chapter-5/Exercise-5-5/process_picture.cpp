@@ -49,7 +49,7 @@ list<string> center_picture(list<string>& the_picture) {
     string_size = current_string.size();
     padding_size = (80 - max_size) / 2;
     string spaces(padding_size, ' ');
-    centered_picture.push_back(spaces + current_string + spaces);
+    centered_picture.push_back(spaces + current_string);
   }
 
   return centered_picture;

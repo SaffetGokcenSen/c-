@@ -41,12 +41,13 @@ list<string> center_picture(list<string>& the_picture) {
     if (current_string.size() > max_size) max_size = current_string.size(); 
   }
 
+  // center the picture assuming a line length of 80 characters
   list<string> centered_picture;
   list<string>::size_type string_size, padding_size;
   for (it = the_picture.begin(); it != the_picture.end(); ++it) {
     current_string = *it;
     string_size = current_string.size();
-    padding_size = (max_size - string_size) / 2;
+    padding_size = (80 - max_size) / 2;
     string spaces(padding_size, ' ');
     centered_picture.push_back(spaces + current_string + spaces);
   }

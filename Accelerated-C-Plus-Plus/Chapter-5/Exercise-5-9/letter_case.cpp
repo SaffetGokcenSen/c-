@@ -27,7 +27,7 @@ istream& read_words(istream& input_stream, list<string>& the_picture) {
   return input_stream;
 }
 
-bool uppercase_inclusion(std::string& input_string) {
+bool uppercase_inclusion(const std::string& input_string) {
     // does the string contain an uppercase letter
     bool contains = false;
     // index for the letters of the string

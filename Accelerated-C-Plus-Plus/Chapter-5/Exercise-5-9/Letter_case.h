@@ -7,6 +7,6 @@
 
 std::istream& read_words(std::istream&, std::list<std::string>&);
 
-bool uppercase_inclusion(std::string&);
+bool uppercase_inclusion(const std::string&);
 
 #endif

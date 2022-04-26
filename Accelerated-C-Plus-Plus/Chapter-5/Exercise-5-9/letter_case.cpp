@@ -9,15 +9,15 @@ using std::list;
 using std::string;
 using std::isupper;
 
-istream& read_words(istream& input_stream, list<string>& the_picture) {
+istream& read_words(istream& input_stream, list<string>& word_list) {
   if (input_stream) {
     // clear the previous content of the list
-    the_picture.clear();
+    word_list.clear();
     string input_line;
 
     // read the input lines
     while (getline(input_stream, input_line)) {
-      the_picture.push_back(input_line);
+      word_list.push_back(input_line);
     }
 
     // make the stream ready for the next input

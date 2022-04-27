@@ -7,6 +7,6 @@
 
 std::istream& read_words(std::istream&, std::list<std::string>&);
 
-bool is_palindrome(const std::string& the_word);
+bool is_palindrome(std::string the_word);
 
 #endif

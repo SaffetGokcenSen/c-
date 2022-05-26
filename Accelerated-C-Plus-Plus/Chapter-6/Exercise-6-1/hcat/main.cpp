@@ -42,10 +42,18 @@ int main() {
         cout << vector2[i] << endl;
     }
 
-    cout << endl << "The horizontally concatenated string is as follows:" << endl << endl;
-    vector<string> hcat_vector = hcat(vector1, vector2);
-    for (vector<string>::size_type i = 0; i != hcat_vector.size(); ++i) {
-        cout << hcat_vector[i] << endl;
+    cout << endl << "The horizontally concatenated string with the first one on "
+         << "the left is as follows:" << endl << endl;
+    vector<string> hcat_vector1 = hcat(vector1, vector2);
+    for (vector<string>::size_type i = 0; i != hcat_vector1.size(); ++i) {
+        cout << hcat_vector1[i] << endl;
+    }
+
+    cout << endl << "The horizontally concatenated string with the first one on "
+         << "the right is as follows:" << endl << endl;
+    vector<string> hcat_vector2 = hcat(vector2, vector1);
+    for (vector<string>::size_type i = 0; i != hcat_vector2.size(); ++i) {
+        cout << hcat_vector2[i] << endl;
     }
 
     return 0;

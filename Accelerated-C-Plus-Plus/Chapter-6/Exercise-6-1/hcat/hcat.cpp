@@ -25,7 +25,7 @@ string add(string string1, string string2) {
 }
 
 // horizontally concatenates two input vectors of strings
-vector<string> hcat(vector<string>& left, vector<string>& right) {
+vector<string> hcat(const vector<string>& left, const vector<string>& right) {
     // the maximum of the lengths of the vector of left strings
     string::size_type max_len_left = width(left);
 
@@ -43,9 +43,15 @@ vector<string> hcat(vector<string>& left, vector<string>& right) {
         space_vector.push_back(spaces);
     }
 
+    // clone the left and the right vectors of strings
+    vector<string> left_copy, right_copy;
+    copy(left.begin(), left.end(), back_inserter(left_copy));
+    copy(right.begin(), right.end(), back_inserter(right_copy));
+
     // add each element of the vector of spaces with varying lengths to each 
     // element of the left vector. use transform to make this addition.
-    transform(left.begin(), left.end(), space_vector.begin(), left.begin(), add);
+    transform(left_copy.begin(), left_copy.end(), space_vector.begin(), 
+    left_copy.begin(), add);
 
     // if the left vector is shorter than the right vector
     // pad spaces to the end of the left vector to equate its length to that of
@@ -61,7 +67,8 @@ vector<string> hcat(vector<string>& left, vector<string>& right) {
         ++i) {
             space_vector2.push_back(spaces);
         }
-        copy(space_vector2.begin(), space_vector2.end(), back_inserter(left));
+        copy(space_vector2.begin(), space_vector2.end(), 
+        back_inserter(left_copy));
     }
     else {
         vector<string> space_vector2;
@@ -75,12 +82,14 @@ vector<string> hcat(vector<string>& left, vector<string>& right) {
         ++i) {
             space_vector2.push_back(blank);
         }
-        copy(space_vector2.begin(), space_vector2.end(), back_inserter(right));
+        copy(space_vector2.begin(), space_vector2.end(), 
+        back_inserter(right_copy));
     }
 
     // add each element of the right vector to each element of the left vector.
     // use transform to make this addition.
-    transform(left.begin(), left.end(), right.begin(), left.begin(), add);
+    transform(left_copy.begin(), left_copy.end(), right_copy.begin(), 
+    left_copy.begin(), add);
 
-    return left;
+    return left_copy;
 }

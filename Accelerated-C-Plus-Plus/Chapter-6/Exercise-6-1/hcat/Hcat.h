@@ -10,7 +10,7 @@ std::string::size_type width(const std::vector<std::string>&);
 std::string add(std::string, std::string);
 
 // horizontally concatenates two input vectors of strings
-std::vector<std::string> hcat(std::vector<std::string>&, 
-std::vector<std::string>&);
+std::vector<std::string> hcat(const std::vector<std::string>&, 
+const std::vector<std::string>&);
 
 #endif

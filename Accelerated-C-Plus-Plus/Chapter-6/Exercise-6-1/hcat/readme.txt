@@ -14,3 +14,9 @@ the output is as follows:
 There is a lot of sugar in the tea                       there are numerous dairy farms in this district
 The mountains are drained by streams teeming with fish   let us investigate the status of the document
 It is a great mountain
+
+If the order of the inputs is reversed, the output will be as follows:
+
+there are numerous dairy farms in this district   There is a lot of sugar in the tea
+let us investigate the status of the document     The mountains are drained by streams teeming with fish
+                                                  It is a great mountain

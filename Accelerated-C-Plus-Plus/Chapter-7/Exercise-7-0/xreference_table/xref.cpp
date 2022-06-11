@@ -24,6 +24,7 @@ bool not_space(char c) {
     return !isspace(c);
 }
 
+// finds the words separated by blanks in the input string
 vector<string> split(const string& str) {
     typedef string::const_iterator iter;
     vector<string> ret;

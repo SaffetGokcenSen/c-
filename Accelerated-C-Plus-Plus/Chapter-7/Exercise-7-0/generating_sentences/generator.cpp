@@ -88,3 +88,10 @@ std::vector<std::string>& ret) {
         gen_aux(g, *i, ret);
     }
 }
+
+// generates a sentence
+std::vector<std::string> gen_sentence(const Grammar& g) {
+    vector<string> ret;
+    gen_aux(g, "<sentence>", ret);
+    return ret;
+}

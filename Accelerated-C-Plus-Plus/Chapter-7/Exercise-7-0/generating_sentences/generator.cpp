@@ -3,12 +3,14 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <stdexcept>
 
 using std::istream;
 using std::string;
 using std::getline;
 using std::vector;
 using std::find_if;
+using std::logic_error;
 
 // true if the argument is whitespace, false otherwise
 bool space(char c) {
@@ -62,4 +64,27 @@ Grammar read_grammar(istream& in) {
 // checks if a word represents a category
 bool bracketed(const string& s) {
     return s.size() > 1 && s[0] == '<' && s[s.size() - 1] == '>'; 
+}
+
+// expand the input string by looking up that string in the grammar
+void gen_aux(const Grammar& g, const std::string& word, 
+std::vector<std::string>& ret) {
+    if (!bracketed(word)) {
+        ret.push_back(word);
+    }
+    else {
+        // locate the rule that corresponds to word
+        Grammar::const_iterator it = g.find(word);
+        if (it == g.end()) throw logic_error("empty rule");
+
+        // fetch the set of possible rules
+        const Rule_collection& c = it->second;
+
+        // from which we select one at random
+        const Rule& r = c[nrand(c.size())];
+
+        // recursively expand the selected rule
+        for (Rule::const_iterator i = r.begin(); i != r.end(); ++i) 
+        gen_aux(g, *i, ret);
+    }
 }

@@ -30,4 +30,7 @@ bool bracketed(const string&);
 // expand the input string by looking up that string in the grammar
 void gen_aux(const Grammar&, const std::string&, std::vector<std::string>&);
 
+// generates a sentence
+std::vector<std::string> gen_sentence(const Grammar&);
+
 #endif

@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <stdexcept>
+#include <cstdlib>
 
 using std::istream;
 using std::string;
@@ -11,6 +12,7 @@ using std::getline;
 using std::vector;
 using std::find_if;
 using std::logic_error;
+using std::domain_error;
 
 // true if the argument is whitespace, false otherwise
 bool space(char c) {
@@ -64,6 +66,20 @@ Grammar read_grammar(istream& in) {
 // checks if a word represents a category
 bool bracketed(const string& s) {
     return s.size() > 1 && s[0] == '<' && s[s.size() - 1] == '>'; 
+}
+
+// return a random integer in the range [0, n)
+int nrand(int n) {
+    if (n <= 0 || n > RAND_MAX) 
+    throw domain_error("Argument to nrand is out of range");
+
+    const int bucket_size = RAND_MAX / n;
+    int r;
+
+    do r = rand() / bucket_size;
+    while (r >= n);
+
+    return r;
 }
 
 // expand the input string by looking up that string in the grammar

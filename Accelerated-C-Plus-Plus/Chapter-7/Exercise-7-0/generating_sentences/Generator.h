@@ -25,7 +25,7 @@ std::vector<std::string> split(const std::string&);
 Grammar read_grammar(std::istream&);
 
 // checks if a word represents a category
-bool bracketed(const string&);
+bool bracketed(const std::string&);
 
 // return a random integer in the range [0, n)
 int nrand(int);

@@ -9,6 +9,6 @@
 bool sort_predicate(const int&, const int&);
 
 // counts the words coming from the input stream
-std::map<std::string, int > count_words(std::istream&);
+std::map<std::string, int> count_words(std::istream&);
 
 #endif

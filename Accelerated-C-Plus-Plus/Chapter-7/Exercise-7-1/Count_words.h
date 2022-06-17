@@ -7,7 +7,8 @@
 #include <list>
 
 // the predicate used to sort the elements of a list of pairs
-bool sort_predicate(const int&, const int&);
+bool sort_predicate(const std::pair<std::string, int>&, 
+const std::pair<std::string, int>&);
 
 // counts the words coming from the input stream
 std::map<std::string, int> count_words(std::istream&);

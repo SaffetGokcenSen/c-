@@ -8,7 +8,7 @@ using std::endl;
 using std::map;
 
 // reads in grades
-list<double> read_grades(istream&) {
+list<double> read_grades(istream& in) {
     // list of the grades
     list<double> grade_list;
     // the grade
@@ -18,7 +18,7 @@ list<double> read_grades(istream&) {
          << "input with the end-of-file character which is ctrl+d in linux." 
          << endl;
 
-    while(cin >> grade) {
+    while(in >> grade) {
         // add the entered grade to the list
         grade_list.push_back(grade);
     }

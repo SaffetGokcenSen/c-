@@ -8,7 +8,8 @@
 // reads in grades
 std::list<double> read_grades(std::istream&);
 
-// determines the letter grades
+// determines the letter grades and stores them in a map from letter grades to 
+// number grades
 std::map<char, std::list<double> > get_letter_grades(const std::list<double>&);
 
 #endif

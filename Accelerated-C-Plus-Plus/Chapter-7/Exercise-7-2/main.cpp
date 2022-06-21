@@ -29,8 +29,14 @@ int main() {
         }
         else {
             list<double>::size_type i = (it->second).size();
-            cout << "There are " << i << " students with the letter grade "
+            if (i == 1) {
+                cout << "There is a student with the letter grade " 
+                     << letter_grade << "." << endl;
+            }
+            else {
+                cout << "There are " << i << " students with the letter grade "
                  << letter_grade << "." << endl;
+            }
         }
     }
 

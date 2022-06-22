@@ -7,4 +7,7 @@
 // the function for reading the lines
 std::list<std::string> read_lines(std::istream&);
 
+// splits the line into its words
+std::list<std::string> extract_words(const std::string&);
+
 #endif

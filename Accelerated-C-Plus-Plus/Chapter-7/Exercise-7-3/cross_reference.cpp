@@ -65,6 +65,8 @@ map<string, list<int> > create_xref(const list<string>& list_of_lines) {
         for (list<string>::const_iterator it2 = words.begin(); 
         it2 != words.end(); ++it2) {
             string the_word = *it2;
+            // if the word position list is not empty, check if the line number
+            // exists in the list
             if (!xref[the_word].empty()) {
                 // does the line number exist?
                 bool cond = xref[the_word].end() == 

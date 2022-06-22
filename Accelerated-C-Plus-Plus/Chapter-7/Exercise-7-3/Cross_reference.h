@@ -12,6 +12,6 @@ std::list<std::string> read_lines(std::istream&);
 std::list<std::string> extract_words(const std::string&);
 
 // creates the cross-reference for the words
-std::map<std::string, int> create_xref(const std::list<std::string>&);
+std::map<std::string, std::list<int> > create_xref(const std::list<std::string>&);
 
 #endif

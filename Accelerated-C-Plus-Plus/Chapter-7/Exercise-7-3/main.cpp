@@ -17,6 +17,9 @@ int main() {
     // the cross reference is created
     map<string, list<int> > xref = create_xref(line_list);
 
+    // a newline is printed for clear output
+    cout << endl;
+
     // the cross reference is stated
     for (map<string, list<int> >::const_iterator it = xref.begin(); 
     it != xref.end(); ++it) {
@@ -25,7 +28,7 @@ int main() {
         list<int> line_num_list = it->second;
         for (list<int>::const_iterator it2 = line_num_list.begin(); 
         it2 != line_num_list.end(); ++it2) {
-            cout << *it2;
+            cout << *it2 << " ";
         }
         cout << endl;
     }

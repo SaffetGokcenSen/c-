@@ -20,15 +20,26 @@ int main() {
     // a newline is printed for clear output
     cout << endl;
 
-    // the cross reference is stated
+    // the cross reference is written down
     for (map<string, list<int> >::const_iterator it = xref.begin(); 
     it != xref.end(); ++it) {
         cout << "The word '" << it->first << "' occurs in the lines with the "
              << "following numbers:" << endl;
         list<int> line_num_list = it->second;
-        for (list<int>::const_iterator it2 = line_num_list.begin(); 
-        it2 != line_num_list.end(); ++it2) {
-            cout << *it2 << " ";
+        list<int>::const_iterator it2 = line_num_list.begin();
+        // if there is only one line number, write it down. Otherwise, write the
+        // first number, then append a blank and another number till the end of 
+        // the list.
+        if (line_num_list.size() == 1) {
+            cout << *it2;
+        }
+        else {
+            cout << *it2;
+            ++it2;
+            while (it2 != line_num_list.end()) {
+                cout << " " << *it2;
+                ++it2;
+            }
         }
         cout << endl;
     }

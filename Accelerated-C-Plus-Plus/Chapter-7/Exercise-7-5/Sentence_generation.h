@@ -12,6 +12,6 @@ typedef std::map<std::string, std::vector<Rule> > Category;
 typedef std::map<Category, std::vector<Rule> > Grammar;
 
 // read the grammar from the input stream
-Grammar read_grammar(std::istream& in);
+Grammar read_grammar(std::istream&);
 
 #endif

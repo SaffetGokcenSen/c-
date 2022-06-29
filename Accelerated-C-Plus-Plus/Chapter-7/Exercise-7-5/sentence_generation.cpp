@@ -57,9 +57,9 @@ Grammar read_grammar(std::istream& in) {
                 ++it;
                 }
             while (it != words.end());
-            Category the_category;
-            the_category[first_word].push_back(the_rule);
-            the_grammar[first_word].push_back(the_category);
+            the_grammar[first_word].push_back(the_rule);
         }
     }
+
+    return the_grammar;
 }

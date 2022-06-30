@@ -37,7 +37,7 @@ Grammar read_grammar(std::istream& in) {
     Grammar the_grammar;
     // prompt the user for entering the grammar
     cout << "Please enter the grammar line by line. Please quit your input with "
-         << "the end-of-file character which is ctrl+d in linux.";
+         << "the end-of-file character which is ctrl+d in linux." << endl;
     
     string line;
     while (getline(in, line)) {

@@ -60,7 +60,10 @@ Grammar read_grammar(std::istream& in) {
             while (it != words.end());
             the_grammar[first_word].push_back(the_rule);
         }
+        else {
+            throw (first_word);
+        }
     }
-
+    
     return the_grammar;
 }

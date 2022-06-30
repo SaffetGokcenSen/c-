@@ -5,6 +5,7 @@ using std::cout;
 using std::getline;
 using std::string;
 using std::list;
+using std::endl;
 
 // split the line into its words
 list<string> extract_words(const string& line) {

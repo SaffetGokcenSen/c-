@@ -1,11 +1,14 @@
 #include "Sentence_generation.h"
 #include <iostream>
+#include <random>
 
 using std::cout;
 using std::getline;
 using std::string;
 using std::list;
 using std::endl;
+using std::uniform_int_distribution;
+using std::default_random_engine;
 
 // split the line into its words
 list<string> extract_words(const string& line) {
@@ -66,4 +69,12 @@ Grammar read_grammar(std::istream& in) {
     }
     
     return the_grammar;
+}
+
+// generate a random integer which is smaller than a given bound
+int rand_int(int upper_bound) {
+    uniform_int_distribution<> rand_int {0, upper_bound-1};
+    default_random_engine e;
+
+    return rand_int(e);
 }

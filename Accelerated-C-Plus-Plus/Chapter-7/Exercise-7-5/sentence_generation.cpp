@@ -73,8 +73,8 @@ Grammar read_grammar(std::istream& in) {
 
 // generate a random integer which is smaller than a given bound
 int rand_int(int upper_bound) {
-    uniform_int_distribution<> rand_int {0, upper_bound-1};
-    default_random_engine e;
+    uniform_int_distribution<int> distribution(0, upper_bound-1);
+    default_random_engine generator;
 
-    return rand_int(e);
+    return distribution(generator);
 }

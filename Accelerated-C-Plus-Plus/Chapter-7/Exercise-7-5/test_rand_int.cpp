@@ -1,5 +1,4 @@
 #include "Sentence_generation.h"
-#include <random>
 
 using std::cout;
 using std::endl;

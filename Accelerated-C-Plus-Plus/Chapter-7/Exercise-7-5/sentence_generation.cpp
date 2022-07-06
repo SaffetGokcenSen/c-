@@ -11,6 +11,7 @@ using std::endl;
 using std::uniform_int_distribution;
 using std::default_random_engine;
 using std::chrono::system_clock;
+using std::vector;
 
 // split the line into its words
 list<string> extract_words(const string& line) {
@@ -90,4 +91,26 @@ int rand_int(int upper_bound) {
     int random_int = distribution(generator);
 
     return random_int;
+}
+
+//std::list<std::string> sample_category(const Grammar&, const std::string&);
+// generate a sample from a category entered by the user
+list<string> sample_category(const Grammar& the_grammar, const string& category) {
+    list<string> the_sample;
+    // typedef std::vector<std::string> Rule;
+    // typedef std::map<std::string, std::vector<Rule> > Grammar;
+    vector<Rule> rule_vector = the_grammar[category];
+    Rule the_rule = rule_vector[rand_int(rule_vector.size())];
+    for (Rule::const_iterator it = the_rule.begin(); it != the_rule.end(); ++it) {
+        string the_string = *it;
+        if ((the_string[0] == '<') && (the_string.size() >= 3) && 
+        (the_string[the_string.size() - 1] == '>')) {
+            sample_category(the_grammar, the_string);
+        }
+        else {
+            the_sample.push_back(the_string);
+        }
+    }
+
+    return the_sample;
 }

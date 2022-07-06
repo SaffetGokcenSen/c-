@@ -21,6 +21,6 @@ Grammar read_grammar(std::istream&);
 int rand_int(int upper_bound);
 
 // generate a sample from a category entered by the user
-std::list<std::string> sample_category(const std::string&);
+std::list<std::string> sample_category(const Grammar&, const std::string&);
 
 #endif

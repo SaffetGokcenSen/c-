@@ -95,8 +95,8 @@ int rand_int(int upper_bound) {
 
 //std::list<std::string> sample_category(const Grammar&, const std::string&);
 // generate a sample from a category entered by the user
-list<string> sample_category(const Grammar& the_grammar, const string& category) {
-    list<string> the_sample;
+list<string> sample_category(const Grammar& the_grammar, const string& category,
+list<string>& the_sample) {
     // typedef std::vector<std::string> Rule;
     // typedef std::map<std::string, std::vector<Rule> > Grammar;
     vector<Rule> rule_vector = the_grammar[category];
@@ -105,7 +105,7 @@ list<string> sample_category(const Grammar& the_grammar, const string& category)
         string the_string = *it;
         if ((the_string[0] == '<') && (the_string.size() >= 3) && 
         (the_string[the_string.size() - 1] == '>')) {
-            sample_category(the_grammar, the_string);
+            sample_category(the_grammar, the_string, the_sample);
         }
         else {
             the_sample.push_back(the_string);

@@ -98,7 +98,6 @@ int rand_int(int upper_bound) {
     return random_int;
 }
 
-//std::list<std::string> sample_category(const Grammar&, const std::string&);
 // generate a sample from a category entered by the user
 list<string> sample_category(Grammar& the_grammar, const string& category,
 list<string>& the_sample) {

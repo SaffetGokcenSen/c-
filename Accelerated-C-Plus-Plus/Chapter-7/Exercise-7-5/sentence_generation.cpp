@@ -44,7 +44,7 @@ Grammar read_grammar(std::istream& in) {
     Grammar the_grammar;
     // prompt the user for entering the grammar
     cout << "Please enter the grammar line by line. Please quit your input with "
-         << "the end-of-file character which is ctrl+d in linux." << endl;
+         << "the '|' character." << endl;
     
     string line;
     while (getline(in, line)) {
@@ -53,21 +53,26 @@ Grammar read_grammar(std::istream& in) {
         list<string>::const_iterator it = words.begin();
         // first word of the line
         string first_word = *it;
-        // if the first word is a valid category, add the rest of the line to the
-        // related category of the grammar map
-        if ((first_word[0] == '<') && (first_word.size() >= 3) && 
-        (first_word[first_word.size() - 1] == '>')) {
-            ++it;
-            Rule the_rule;
-            do {
-                the_rule.push_back(*it);
-                ++it;
-                }
-            while (it != words.end());
-            the_grammar[first_word].push_back(the_rule);
+        if (first_word[0] == '|') {
+            return the_grammar;
         }
         else {
-            throw (first_word);
+            // if the first word is a valid category, add the rest of the line 
+            // to the related category of the grammar map
+            if ((first_word[0] == '<') && (first_word.size() >= 3) && 
+            (first_word[first_word.size() - 1] == '>')) {
+                ++it;
+                Rule the_rule;
+                do {
+                    the_rule.push_back(*it);
+                    ++it;
+                }
+                while (it != words.end());
+                the_grammar[first_word].push_back(the_rule);
+            }
+            else {
+                throw (first_word);
+            }
         }
     }
     

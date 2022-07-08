@@ -100,7 +100,7 @@ int rand_int(int upper_bound) {
 
 //std::list<std::string> sample_category(const Grammar&, const std::string&);
 // generate a sample from a category entered by the user
-list<string> sample_category(const Grammar& the_grammar, const string& category,
+list<string> sample_category(Grammar& the_grammar, const string& category,
 list<string>& the_sample) {
     // typedef std::vector<std::string> Rule;
     // typedef std::map<std::string, std::vector<Rule> > Grammar;

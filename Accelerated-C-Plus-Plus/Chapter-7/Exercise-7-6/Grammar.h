@@ -17,4 +17,7 @@ std::list<std::string> extract_words(const std::string&);
 // read the grammar from the input stream
 Grammar read_grammar(std::istream&);
 
+// generate a random integer which is smaller than a given bound
+int rand_int(int upper_bound);
+
 #endif

@@ -9,6 +9,7 @@ using std::endl;
 using std::uniform_int_distribution;
 using std::default_random_engine;
 using std::chrono::system_clock;
+using std::vector;
 
 // split the line into its words
 list<string> extract_words(const string& line) {
@@ -93,4 +94,30 @@ int rand_int(int upper_bound) {
     int random_int = distribution(generator);
 
     return random_int;
+}
+
+// determines if a string represents a category
+bool is_category(const string& the_string) {
+    string::size_type the_size = the_string.size();
+    if ((the_string[0] == '<') && (the_size >= 3) && 
+    (the_string[the_size - 1] == '>')) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+// sample a category entered by the user
+std::list<std::string> generate_category(Grammar& the_grammar, 
+const std::string& the_category) {
+    // the vector of rules corresponding to the entered category are got
+    vector<Rule> rule_vector = the_grammar[the_category];
+    // a rule is sampled from the vector of rules
+    Rule the_rule = rule_vector[rand_int(rule_vector.size())];
+    do
+    {
+        /* code */
+    } while (/* condition */);
+    
 }

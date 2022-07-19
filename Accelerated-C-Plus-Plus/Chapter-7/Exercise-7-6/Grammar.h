@@ -20,4 +20,7 @@ Grammar read_grammar(std::istream&);
 // generate a random integer which is smaller than a given bound
 int rand_int(int upper_bound);
 
+// sample a category entered by the user
+std::list<std::string> generate_category(Grammar&, const std::string&);
+
 #endif

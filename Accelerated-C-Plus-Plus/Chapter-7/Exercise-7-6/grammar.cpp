@@ -1,9 +1,14 @@
 #include "Grammar.h"
+#include <chrono>
+#include <random>
 
 using std::list;
 using std::string;
 using std::cout;
 using std::endl;
+using std::uniform_int_distribution;
+using std::default_random_engine;
+using std::chrono::system_clock;
 
 // split the line into its words
 list<string> extract_words(const string& line) {
@@ -69,4 +74,23 @@ Grammar read_grammar(std::istream& in) {
     }
     
     return the_grammar;
+}
+
+// generate a random integer which is smaller than a given bound
+int rand_int(int upper_bound) {
+    // The time duration in nanoseconds that has elapsed since 00:00:00 
+    // Coordinated Universal Time (UTC), Thursday, 1 January 1970, not counting 
+    // leap seconds. In this 64 bit linux system, seed can have values up to 2 
+    // to the power 64 minus 1.
+    unsigned seed = system_clock::now().time_since_epoch().count();
+    // random number generator is created using the seed
+    default_random_engine generator (seed);
+    // the distribution from which the random integer is to be sampled is 
+    // declared.
+    uniform_int_distribution<int> distribution(0,upper_bound - 1);
+    
+    // the random integer is sampled.
+    int random_int = distribution(generator);
+
+    return random_int;
 }

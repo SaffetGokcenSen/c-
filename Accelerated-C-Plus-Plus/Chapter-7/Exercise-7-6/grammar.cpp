@@ -1,6 +1,7 @@
 #include "Grammar.h"
 #include <chrono>
 #include <random>
+#include <algorithm>
 
 using std::list;
 using std::string;
@@ -10,6 +11,7 @@ using std::uniform_int_distribution;
 using std::default_random_engine;
 using std::chrono::system_clock;
 using std::vector;
+using std::find_if;
 
 // split the line into its words
 list<string> extract_words(const string& line) {
@@ -115,9 +117,28 @@ const std::string& the_category) {
     vector<Rule> rule_vector = the_grammar[the_category];
     // a rule is sampled from the vector of rules
     Rule the_rule = rule_vector[rand_int(rule_vector.size())];
+    // the iterator for the rule
+    list<string>::iterator it;
+    // determines if the loop is to be quit
+    bool quit_loop;
     do
     {
-        /* code */
-    } while (/* condition */);
-    
+        // find the first category in the rule
+        it = find_if(the_rule.begin(), the_rule.end(), is_category);
+        // is there a category?
+        quit_loop = it != the_rule.end();
+        // if there is a category
+        if (quit_loop) {
+            // expand the category
+            vector<Rule> rule_vector_2 = the_grammar[*it];
+            // get the rule
+            Rule the_rule_2 = rule_vector_2[rand_int(rule_vector_2.size())];
+            // insert the rule into the original rule
+            the_rule.insert(it, the_rule_2.begin(), the_rule_2.end());
+            // erase the category from the original rule
+            the_rule.erase(it);
+        }
+    } while (quit_loop);
+
+    return the_rule;
 }

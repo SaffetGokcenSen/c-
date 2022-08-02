@@ -1,5 +1,7 @@
 #include <algorithm>
 
+using std::swap;
+
 template <class Bi> void reverse(Bi begin, Bi end) {
     while (begin != end) {
         --end;

@@ -1,4 +1,3 @@
-#include "split.cpp"
 #include <string>
 #include <algorithm>
 

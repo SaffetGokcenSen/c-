@@ -16,7 +16,7 @@ double grade(const Student_info&);
 
 double grade_aux(const Student_info&);
 
-double median(vector<double>);
+double median(std::vector<double>);
 
 double median_analysis(const std::vector<Student_info>&);
 

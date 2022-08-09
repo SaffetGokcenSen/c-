@@ -16,6 +16,8 @@ double grade(const Student_info&);
 
 double grade_aux(const Student_info&);
 
+double median_analysis(const std::vector<Student_info>&);
+
 template <class T, class X>
 X grade_analysis(const std::vector<T>& v, X x);
 

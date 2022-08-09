@@ -10,6 +10,8 @@ struct Student_info {
     std::vector<double> homework;
 };
 
+double grade(double, double, double);
+
 template <class T, class X>
 X grade_analysis(const std::vector<T>& v, X x);
 

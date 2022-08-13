@@ -2,12 +2,14 @@
 #include <stdexcept>
 #include <algorithm>
 #include <iterator>
+#include <numeric>
 
 using std::domain_error;
 using std::vector;
 using std::sort;
 using std::transform;
 using std::back_inserter;
+using std::accumulate;
 
 double grade(double midterm, double final, double homework)
 {
@@ -44,4 +46,9 @@ double median_analysis(const vector<Student_info>& students)
     vector<double> grades;
     transform(students.begin(), students.end(), back_inserter(grades), grade_aux);
     return median(grades);
+}
+
+double average(const vector<double>& v)
+{
+    return accumulate(v.begin(), v.end(), 0.0) / v.size();
 }

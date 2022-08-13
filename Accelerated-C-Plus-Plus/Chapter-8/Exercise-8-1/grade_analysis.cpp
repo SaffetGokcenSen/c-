@@ -42,13 +42,6 @@ double median(vector<double> vec)
     return size % 2 == 0 ? (vec[mid] + vec[mid-1]) / 2 : vec[mid];
 }
 
-double median_analysis(const vector<Student_info>& students)
-{
-    vector<double> grades;
-    transform(students.begin(), students.end(), back_inserter(grades), grade_aux);
-    return median(grades);
-}
-
 double average(const vector<double>& v)
 {
     return accumulate(v.begin(), v.end(), 0.0) / v.size();
@@ -59,13 +52,6 @@ double average_grade(const Student_info& s)
     return grade(s.midterm, s.final, average(s.homework));
 }
 
-double average_analysis(const vector<Student_info>& students)
-{
-    vector<double> grades;
-    transform(students.begin(), students.end(), back_inserter(grades), average_grade);
-    return median(grades);
-}
-
 double optimistic_median(const Student_info& s)
 {
     vector<double> nonzero;
@@ -74,11 +60,4 @@ double optimistic_median(const Student_info& s)
         return grade(s.midterm, s.final, 0);
     else
         return grade(s.midterm, s.final, median(nonzero));
-}
-
-double optimistic_median_analysis(const vector<Student_info>& students)
-{
-    vector<double> grades;
-    transform(students.begin(), students.end(), back_inserter(grades), optimistic_median);
-    return median(grades);
 }

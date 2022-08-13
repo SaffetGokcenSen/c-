@@ -1,10 +1,13 @@
 #include "Grade_analysis.h"
 #include <stdexcept>
 #include <algorithm>
+#include <iterator>
 
 using std::domain_error;
 using std::vector;
 using std::sort;
+using std::transform;
+using std::back_inserter;
 
 double grade(double midterm, double final, double homework)
 {
@@ -34,4 +37,11 @@ double median(vector<double> vec)
     sort(vec.begin(), vec.end());
     vec_sz mid = size/2;
     return size % 2 == 0 ? (vec[mid] + vec[mid-1]) / 2 : vec[mid];
+}
+
+double median_analysis(const vector<Student_info>& students)
+{
+    vector<double> grades;
+    transform(students.begin(), students.end(), back_inserter(grades), grade_aux);
+    return median(grades);
 }

@@ -75,3 +75,10 @@ double optimistic_median(const Student_info& s)
     else
         return grade(s.midterm, s.final, median(nonzero));
 }
+
+double optimistic_median_analysis(const vector<Student_info>& students)
+{
+    vector<double> grades;
+    transform(students.begin(), students.end(), back_inserter(grades), optimistic_median);
+    return median(grades);
+}

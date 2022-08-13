@@ -10,6 +10,7 @@ using std::sort;
 using std::transform;
 using std::back_inserter;
 using std::accumulate;
+using std::remove_copy;
 
 double grade(double midterm, double final, double homework)
 {
@@ -63,4 +64,14 @@ double average_analysis(const vector<Student_info>& students)
     vector<double> grades;
     transform(students.begin(), students.end(), back_inserter(grades), average_grade);
     return median(grades);
+}
+
+double optimistic_median(const Student_info& s)
+{
+    vector<double> nonzero;
+    remove_copy(s.homework.begin(), s.homework.end(), back_inserter(nonzero), 0);
+    if (nonzero.empty())
+        return grade(s.midterm, s.final, 0);
+    else
+        return grade(s.midterm, s.final, median(nonzero));
 }

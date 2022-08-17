@@ -13,6 +13,8 @@ struct Student_info {
 
 std::istream& read_hw(std::istream&, std::vector<double>&);
 
+std::istream& read(std::istream&, Student_info&);
+
 double grade(double, double, double);
 
 double median(std::vector<double>);

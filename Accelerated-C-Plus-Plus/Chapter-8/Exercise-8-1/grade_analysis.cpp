@@ -4,13 +4,29 @@
 #include <iterator>
 #include <numeric>
 
-using std::domain_error;
+using std::istream;
 using std::vector;
+using std::domain_error;
 using std::sort;
 using std::transform;
 using std::back_inserter;
 using std::accumulate;
 using std::remove_copy;
+
+istream& read_hw(istream& in, vector<double>& hw)
+{
+    if (in) {
+        // get rid of previous contents
+        hw.clear();
+        // read homework grades
+        double x;
+        while (in >> x)
+        hw.push_back(x);
+        // clear the stream so that input will work for the next student
+        in.clear();
+    }
+    return in;
+}
 
 double grade(double midterm, double final, double homework)
 {

@@ -3,12 +3,15 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 
 struct Student_info {
     std::string name;
     double midterm, final;
     std::vector<double> homework;
 };
+
+std::istream& read_hw(std::istream&, std::vector<double>&);
 
 double grade(double, double, double);
 

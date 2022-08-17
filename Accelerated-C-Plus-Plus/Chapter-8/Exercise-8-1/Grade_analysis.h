@@ -32,7 +32,7 @@ double average_grade(const Student_info&);
 double optimistic_median(const Student_info&);
 
 template <class T, class X>
-X grade_analysis(const std::vector<T>& v, X x);
+double grade_analysis(const std::vector<T>& v, X x);
 
 #include "grade_analysis.hpp"
 

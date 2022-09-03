@@ -9,4 +9,6 @@ bool equal(In, In, Out);
 template <class Out>
 void split(const std::string& str, Out os);
 
+#include "split.hpp"
+
 #endif

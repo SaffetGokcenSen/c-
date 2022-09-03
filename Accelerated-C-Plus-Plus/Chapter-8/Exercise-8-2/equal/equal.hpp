@@ -4,6 +4,7 @@ bool equal(In b, In e, Out b2) {
     while (b != e & equal) {
         equal = *b2 == *b;
         ++b;
+        ++b2;
     }
     return equal;
 }

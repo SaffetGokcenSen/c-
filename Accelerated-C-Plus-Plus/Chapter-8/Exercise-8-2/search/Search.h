@@ -4,4 +4,6 @@
 template <class For>
 For search(For, For, For, For);
 
+#include "search.hpp"
+
 #endif

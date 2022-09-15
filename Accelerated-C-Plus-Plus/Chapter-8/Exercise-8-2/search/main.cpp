@@ -61,6 +61,16 @@ int main() {
         cout << "The element before the starting point of the sequence is as "
              << "follows:" << endl;
         cout << *it << endl;
+        it = it + sequence_2.size() + 1;
+        if (it == e) {
+            cout << "The last element of the sequence is the same as that of the"
+                 << " bigger sequence" << endl;
+        }
+        else {
+            cout << "The element after the last element of the sequence is as "
+                 << "follows:" << endl;
+            cout << *it << endl;
+        }
     }
     else {
         cout << "The second sequence is not contained in the first sequence."

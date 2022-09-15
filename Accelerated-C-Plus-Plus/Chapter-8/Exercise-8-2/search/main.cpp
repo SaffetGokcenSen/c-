@@ -59,7 +59,7 @@ int main() {
     if (it != e) {
         --it;
         cout << "The element before the starting point of the sequence is as "
-             << "follows" << endl;
+             << "follows:" << endl;
         cout << *it << endl;
     }
     else {

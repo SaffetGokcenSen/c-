@@ -60,7 +60,7 @@ int main() {
         --it;
         cout << "The element before the starting point of the sequence is as "
              << "follows" << endl;
-        cout << *it;
+        cout << *it << endl;
     }
     else {
         cout << "The second sequence is not contained in the first sequence."

@@ -1,4 +1,4 @@
 Explanation
 This program implements the template function find_if. The implementation is 
-first made for a sequence of integer input. The second implementation is for a 
+first tested with a sequence of integer input. The second test is with a 
 sequence of character input.

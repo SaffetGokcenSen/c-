@@ -1,3 +1,4 @@
 Explanation
-Returns an iterator for which the predicate p is true, in the sequence denoted 
-by the input iterators b and e. Returns e if no such element exists.
+This program implements the template function find_if. The implementation is 
+first made for a sequence of integer input. The second implementation is for a 
+sequence of character input.

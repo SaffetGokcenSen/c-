@@ -1,7 +1,7 @@
-template <class For>
-For find_if(For b, For e, bool p) {
+template <class For, class Predicate>
+For find_if(For b, For e, Predicate p) {
     while (b != e) {
-        if p(*b) {
+        if (p(*b)) {
             return b;
         }
         else {

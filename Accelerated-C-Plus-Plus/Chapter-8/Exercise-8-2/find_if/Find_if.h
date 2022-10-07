@@ -4,4 +4,6 @@
 template <class For>
 For find_if(For, For, bool);
 
+#include "find_if.hpp"
+
 #endif

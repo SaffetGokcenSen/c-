@@ -4,4 +4,6 @@
 template <class In, class Out>
 Out copy(In, In, Out);
 
+#include "copy.hpp"
+
 #endif
